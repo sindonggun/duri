@@ -100,6 +100,8 @@ class Preview extends ViewGroup implements SurfaceHolder.Callback {
         mCamera = camera;
         Log.i("test", String.valueOf(mCamera));
         if (mCamera != null) {
+            int m_resWidth;
+            int m_resHeight;
             List<Size> localSizes = mCamera.getParameters().getSupportedPreviewSizes();
             mSupportedPreviewSizes = localSizes;
             requestLayout();
@@ -107,7 +109,13 @@ class Preview extends ViewGroup implements SurfaceHolder.Callback {
             // get Camera parameters
             Camera.Parameters params = mCamera.getParameters();
             params.setColorEffect(EFFECT_POSTERIZE);
+            params.setPreviewFrameRate(10);
+            params.setExposureCompensation(20);
+            params.setWhiteBalance(WHITE_BALANCE_DAYLIGHT);
+            mCamera.setParameters(params);
 
+            Log.i("exposuremin", String.valueOf(params.getMinExposureCompensation()));
+            Log.i("exposuremax", String.valueOf(params.getMaxExposureCompensation()));
             List<String> focusModes = params.getSupportedFocusModes();
             if (focusModes.contains(Camera.Parameters.FOCUS_MODE_AUTO)) {
                 // set the focus mode
@@ -116,6 +124,7 @@ class Preview extends ViewGroup implements SurfaceHolder.Callback {
 
             }
             mCamera.setParameters(params);
+
             try {
                 mCamera.setPreviewDisplay(mHolder);
             } catch (IOException e) {

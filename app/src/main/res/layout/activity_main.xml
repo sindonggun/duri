@@ -2,29 +2,33 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/layout"
+
     tools:context=".MainActivity">
 
 
+    <SurfaceView
+        android:id="@+id/surfaceView"
 
-    <SurfaceView android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:id="@+id/surfaceView"/>
+        android:layout_height="match_parent" />
 
-    <Button android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+    <Button
         android:id="@+id/btnCapture"
-        android:text="캡처"
-        android:layout_gravity="bottom|center"/>
-
-    <TextView android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:text="캡처" />
+
+    <TextView
         android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="두리캠"
-        android:textSize="30dp"
-        android:textColor="@android:color/background_light"/>
+        android:textColor="@android:color/background_light"
+        android:textSize="30dp" />
 
     <Button
         android:id="@+id/switchbutton"

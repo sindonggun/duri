@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.hardware.Camera;
 import android.hardware.Camera.PictureCallback;
@@ -110,7 +111,9 @@ public class MainActivity extends AppCompatActivity {
             preview = new Preview(this, (SurfaceView) findViewById(R.id.surfaceView));
             preview.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
                     LayoutParams.MATCH_PARENT));
+
             ((FrameLayout) findViewById(R.id.layout)).addView(preview);
+
             preview.setKeepScreenOn(true);
 
             /* 프리뷰 화면 눌렀을 때  사진을 찍음
